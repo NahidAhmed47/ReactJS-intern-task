@@ -1,8 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./layouts/Main";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main></Main>,
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  </React.StrictMode>,
-)
+    <RouterProvider router={router}></RouterProvider>
+  </React.StrictMode>
+);
