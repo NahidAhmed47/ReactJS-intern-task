@@ -4,9 +4,8 @@ import Table from "react-bootstrap/Table";
 
 const AllBookings = () => {
   const bookings = getUserData();
-  console.log(bookings);
   return (
-    <div className="container py-5 d-flex justify-content-center align-items-center">
+    <div className="container py-5 d-flex justify-content-center align-items-center overflow-x-scroll">
       {
         bookings.length > 0 ? <Table striped bordered hover variant="dark">
         <thead>

@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./ModalForm.css";
 import { setUserData } from "../../../utils/localStorage";
+import { toast } from "react-hot-toast";
 
 const ModalForm = (props) => {
   const showData = props.showdata;
@@ -22,7 +23,7 @@ const ModalForm = (props) => {
         comment
       }
       setUserData(ticketInfo)
-      console.log(ticketInfo)
+      toast.success('Booking successful!')
       props.onHide();
   }
   return (
