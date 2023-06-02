@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Show = ({ eachShow }) => {
   const { show } = eachShow;
-  console.log(show);
   return (
     <Link to={`shows/${show.id}`}>
       <div className="show-card shadow">

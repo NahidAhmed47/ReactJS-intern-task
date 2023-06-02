@@ -12,7 +12,6 @@ const AllShows = () => {
     };
     loadShowData();
   }, []);
-  console.log(allShowsData[0]?.show?.image?.original);
   return (
     <div className="container-lg my-5 d-flex justify-content-between">
       <div className="d-flex flex-wrap justify-content-center gap-4">

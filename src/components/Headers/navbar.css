@@ -1,0 +1,11 @@
+.nav-link{
+    text-decoration: none;
+}
+.nav-container{
+    display: flex;
+    gap: 20px;
+}
+.route{
+    font-weight: 600;
+    font-family: "Consolas", monospace;
+}

@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layouts/Main";
 import Home from "./components/Home/Home";
 import ShowSummary from "./components/ShowSummary/ShowSummary";
+import AllBookings from "./components/AllBookings/AllBookings";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: 'shows/:id',
         element: <ShowSummary></ShowSummary>,
         loader: ({params})=> fetch(`https://api.tvmaze.com/shows/${params.id}`)
+      },
+      {
+        path: 'bookings',
+        element: <AllBookings></AllBookings>
       }
     ]
   },
