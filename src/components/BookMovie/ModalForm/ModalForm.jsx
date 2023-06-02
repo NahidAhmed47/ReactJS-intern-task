@@ -1,9 +1,30 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./ModalForm.css";
+import { setUserData } from "../../../utils/localStorage";
 
 const ModalForm = (props) => {
   const showData = props.showdata;
+  //   handle confirm button
+  const handleFormData = (e)=>{
+      e.preventDefault();
+      const form = e.target;
+      const user_name = form.name.value;
+      const email = form.email.value;
+      const address = form.address.value;
+      const comment = form.comment.value;
+      const ticketInfo = {
+        ticketSL: Math.round(Math.random()*10000),
+        showId: showData.id,
+        user_name,
+        email,
+        address,
+        comment
+      }
+      setUserData(ticketInfo)
+      console.log(ticketInfo)
+      props.onHide();
+  }
   return (
     <Modal
       {...props}
@@ -12,7 +33,7 @@ const ModalForm = (props) => {
       centered
     >
       <Modal.Body className="modal-form">
-        <div className="form">
+      <form className="form" onSubmit={handleFormData}>
           <div className="title">Welcome</div>
           <div className="subtitle">Let's booking this movie!</div>
           <div className="input-container ic1">
@@ -24,33 +45,36 @@ const ModalForm = (props) => {
                 id="showName"
                 className="input"
                 type="text"
+                name="showName"
                 defaultValue={showData.name}
                 readOnly
               />
             </div>
             <div>
-            <label htmlFor="endedDate" className="input-label">
+              <label htmlFor="endedDate" className="input-label">
                 Ended Date:
               </label>
-            <input
-              id="endedDate"
-              className="input"
-              type="text"
-              defaultValue={showData.ended}
+              <input
+                id="endedDate"
+                className="input"
+                type="text"
+                name="date"
+                defaultValue={showData.ended}
                 readOnly
-            />
+              />
             </div>
             <div>
-            <label htmlFor="language" className="input-label">
+              <label htmlFor="language" className="input-label">
                 Language:
               </label>
-            <input
-              id="language"
-              className="input"
-              type="text"
-              defaultValue={showData.language}
+              <input
+                id="language"
+                className="input"
+                type="text"
+                name="language"
+                defaultValue={showData.language}
                 readOnly
-            />
+              />
             </div>
           </div>
           {/* user info start from here */}
@@ -64,49 +88,67 @@ const ModalForm = (props) => {
                 className="input"
                 type="text"
                 placeholder="Your Name"
+                name="name"
               />
             </div>
             <div>
-            <label htmlFor="email" className="input-label">
+              <label htmlFor="email" className="input-label">
                 Email:
               </label>
-            <input
-              id="email"
-              className="input"
-              type="email"
-              placeholder="Email"
-            />
+              <input
+                id="email"
+                className="input"
+                type="email"
+                placeholder="Email"
+                name="email"
+              />
             </div>
             <div>
-            <label htmlFor="address" className="input-label">
+              <label htmlFor="address" className="input-label">
                 Address:
               </label>
-            <input
-              id="address"
-              className="input"
-              type="text"
-              placeholder="Current address"
-            />
+              <input
+                id="address"
+                className="input"
+                type="text"
+                placeholder="Current address"
+                name="address"
+              />
             </div>
           </div>
           <div className="comment-container">
-          <label htmlFor="address" className="input-label">
-                Comment:
-              </label>
-            <textarea name="comment" id="" cols="30" rows="10" className="comment-field" placeholder="Write your comment..."></textarea>
+            <label htmlFor="address" className="input-label">
+              Comment:
+            </label>
+            <textarea
+              name="comment"
+              id=""
+              cols="30"
+              rows="10"
+              className="comment-field"
+              placeholder="Write your comment..."
+            ></textarea>
           </div>
           <div className="modal-action">
             <Button className="modal-btn-cancel" onClick={props.onHide}>
               Cancel
             </Button>
-            <Button className="modal-btn-confirm" onClick={props.onHide}>
+            <button className="modal-btn-confirm">
               Confirm
-            </Button>
+            </button>
           </div>
-        </div>
+        </form>
       </Modal.Body>
     </Modal>
   );
 };
 
 export default ModalForm;
+
+// {/* <form onSubmit={handleConfirmBtn}>
+//             <input type="text" name="name"/>
+//             {/* <Button className="modal-btn-confirm">
+//               Confirm
+//             </Button> */}
+//             <button className="modal-btn-confirm">Submit</button>
+//         </form> */}
