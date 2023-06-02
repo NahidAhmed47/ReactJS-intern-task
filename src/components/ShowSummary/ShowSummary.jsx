@@ -34,7 +34,7 @@ const ShowSummary = () => {
         Book Movie
       </Button>
       <ModalForm show={modalShow}
-        onHide={() => setModalShow(false)}></ModalForm>
+        onHide={() => setModalShow(false)} showdata={data}></ModalForm>
       </div>
     </div>
   );
