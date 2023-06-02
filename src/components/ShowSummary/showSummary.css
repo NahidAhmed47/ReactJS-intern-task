@@ -22,6 +22,7 @@
     color: white;
     background: #c71f30;
     border: none;
+    border-radius: 0px;
 }
 
 @media (max-width: 768px) {

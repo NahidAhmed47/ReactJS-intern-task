@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import "./showSummary.css";
+import { Button } from "react-bootstrap";
+import ModalForm from "../BookMovie/ModalForm/ModalForm";
 
 const ShowSummary = () => {
   const data = useLoaderData();
+  const [modalShow, setModalShow] = useState(false);
   console.log(data);
   const { name, status, image, summary } = data;
   // TODO: extra tag remove from summary data
@@ -27,7 +30,11 @@ const ShowSummary = () => {
           <p>Status: {status}</p>
           <p>Summary: {summary}</p>
         </div>
-        <button className="book-btn">Book Movie</button>
+        <Button className="book-btn" variant="primary" onClick={() => setModalShow(true)}>
+        Book Movie
+      </Button>
+      <ModalForm show={modalShow}
+        onHide={() => setModalShow(false)}></ModalForm>
       </div>
     </div>
   );
