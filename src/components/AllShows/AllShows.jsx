@@ -14,7 +14,7 @@ const AllShows = () => {
   }, []);
   console.log(allShowsData[0]?.show?.image?.original);
   return (
-    <div className="container-lg mt-5 mb-5 d-flex justify-content-between">
+    <div className="container-lg my-5 d-flex justify-content-between">
       <div className="d-flex flex-wrap justify-content-center gap-4">
         {allShowsData?.map((show, index) => <Show key={index} eachShow={show}></Show>)}
       </div>
