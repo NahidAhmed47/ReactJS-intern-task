@@ -1,11 +1,12 @@
 import React from "react";
 import { getUserData } from "../../utils/localStorage";
 import Table from "react-bootstrap/Table";
+import './allBookings.css'
 
 const AllBookings = () => {
   const bookings = getUserData();
   return (
-    <div className="container py-5 d-flex justify-content-center align-items-center overflow-x-scroll">
+    <div className="container py-5 d-flex justify-content-center align-items-center bookings-container">
       {
         bookings.length > 0 ? <Table striped bordered hover variant="dark">
         <thead>
