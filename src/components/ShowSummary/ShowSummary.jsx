@@ -7,7 +7,6 @@ import ModalForm from "../BookMovie/ModalForm/ModalForm";
 const ShowSummary = () => {
   const data = useLoaderData();
   const [modalShow, setModalShow] = useState(false);
-  console.log(data);
   const { name, status, image, summary, genres, premiered, language, rating } =
     data;
   return (
@@ -46,7 +45,7 @@ const ShowSummary = () => {
           variant="primary"
           onClick={() => setModalShow(true)}
         >
-          Book Movie
+          Book Now
         </Button>
         <ModalForm
           show={modalShow}

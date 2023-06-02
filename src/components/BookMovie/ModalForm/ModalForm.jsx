@@ -36,7 +36,7 @@ const ModalForm = (props) => {
       <Modal.Body className="modal-form">
       <form className="form" onSubmit={handleFormData}>
           <div className="title">Welcome</div>
-          <div className="subtitle">Let's booking this movie!</div>
+          <div className="subtitle">Let's booking and enjoy!</div>
           <div className="input-container ic1">
             <div>
               <label htmlFor="showName" className="input-label">
@@ -90,6 +90,7 @@ const ModalForm = (props) => {
                 type="text"
                 placeholder="Your Name"
                 name="name"
+                required
               />
             </div>
             <div>
@@ -102,6 +103,7 @@ const ModalForm = (props) => {
                 type="email"
                 placeholder="Email"
                 name="email"
+                required
               />
             </div>
             <div>
@@ -145,11 +147,3 @@ const ModalForm = (props) => {
 };
 
 export default ModalForm;
-
-// {/* <form onSubmit={handleConfirmBtn}>
-//             <input type="text" name="name"/>
-//             {/* <Button className="modal-btn-confirm">
-//               Confirm
-//             </Button> */}
-//             <button className="modal-btn-confirm">Submit</button>
-//         </form> */}

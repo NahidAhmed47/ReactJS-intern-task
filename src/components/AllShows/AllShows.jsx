@@ -7,7 +7,6 @@ const AllShows = () => {
     const loadShowData = async () => {
       const res = await fetch("https://api.tvmaze.com/search/shows?q=all");
       const showsData = await res.json();
-      console.log(showsData);
       setAllShowsData(showsData);
     };
     loadShowData();

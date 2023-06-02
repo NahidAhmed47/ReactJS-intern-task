@@ -15,6 +15,7 @@ const Show = ({ eachShow }) => {
               <p key={index}>{name}{show.genres.length > 1 && ','}</p>
             ))}
           </div>
+          <p className="fs-6">{show?.ended}</p>
           <p className="fs-6 text-danger">Click for Details</p>
         </div>
       </div>
